@@ -1,5 +1,6 @@
 // calculadora.cpp (Versión inicial sin punteros)
 #include <iostream>
+#include <cmath> 
 using namespace std;
 
 double sumar(double a, double b) {
@@ -20,6 +21,11 @@ double dividir(double a, double b) {
         return 0;
     }
     return a / b;
+}
+
+// Función para calcular la potencia (base elevada a un exponente)
+double potencia(double base, double exponente) {
+    return pow(base, exponente); // Utiliza la función pow de cmath
 }
 
 int main() {
@@ -44,6 +50,9 @@ int main() {
             break;
         case '/':
             cout << "Resultado: " << dividir(num1, num2) << endl;
+            break;
+        case '^': // Nuevo caso para la potencia
+            cout << "Resultado: " << potencia(num1, num2) << endl;
             break;
         default:
             cout << "Operacion no válida." << endl;
