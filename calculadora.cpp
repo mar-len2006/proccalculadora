@@ -30,32 +30,34 @@ double raizCuadrada(double a) {
     return sqrt(a);
 }
 
-double logaritmo(double a) {
+double logaritmoNatural(double a) {
     if (a <= 0) {
-        cout << "Error: Logaritmo de número no positivo no permitido." << endl;
+        cout << "Error: Logaritmo natural de número no positivo no permitido." << endl;
         return 0;
     }
-    return log10(a);
+    return log(a); // log(x) es logaritmo natural en C++
 }
 
 int main() {
     double num1, num2;
     char operacion;
 
-    cout << "Ingrese operación (+, -, *, /, r, l): ";
+    cout << "Ingrese operación (+, -, *, /, r = raíz, l = logaritmo natural): ";
     cin >> operacion;
 
     if (operacion == 'r' || operacion == 'l') {
+        // Operaciones unarias
         cout << "Ingrese un número: ";
         cin >> num1;
 
         if (operacion == 'r') {
             cout << "Resultado: " << raizCuadrada(num1) << endl;
         } else {
-            cout << "Resultado: " << logaritmo(num1) << endl;
+            cout << "Resultado: " << logaritmoNatural(num1) << endl;
         }
 
     } else if (operacion == '+' || operacion == '-' || operacion == '*' || operacion == '/') {
+        // Operaciones binarias
         cout << "Ingrese el primer número: ";
         cin >> num1;
         cout << "Ingrese el segundo número: ";
